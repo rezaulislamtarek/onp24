@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="news"
+            type="com.onp24.onlinenewsportal24.model.data.News" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="25dp"
+            android:background="#B12323"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/cvRoot"
+            app:cardUseCompatPadding="true"
+            card_view:cardCornerRAdius="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:foreground="@drawable/image_overlay"
+                    android:scaleType="centerCrop"
+                    app:image="@{news.image}" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/noto_serif_bengali_regular"
+                    android:maxLines="2"
+                    android:layout_alignParentBottom="true"
+                    android:paddingLeft="24dp"
+                    android:gravity="center"
+                    android:paddingBottom="4dp"
+                    android:textStyle="bold"
+                    android:paddingRight="24dp"
+                    android:text="@{news.title}"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</layout>

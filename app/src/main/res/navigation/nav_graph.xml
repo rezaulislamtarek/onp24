@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.onp24.onlinenewsportal24.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_navDrawerFragment"
+            app:destination="@id/navDrawerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_categoryNewsFragment"
+            app:destination="@id/categoryNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.onp24.onlinenewsportal24.ui.details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="news"
+            app:argType="com.onp24.onlinenewsportal24.model.data.News" />
+    </fragment>
+    <fragment
+        android:id="@+id/navDrawerFragment"
+        android:name="com.onp24.onlinenewsportal24.ui.home.NavDrawerFragment"
+        android:label="fragment_nav_drawer"
+        tools:layout="@layout/fragment_nav_drawer" >
+        <action
+            android:id="@+id/action_navDrawerFragment_to_categoryNewsFragment"
+            app:destination="@id/categoryNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryNewsFragment"
+        android:name="com.onp24.onlinenewsportal24.ui.categorywisenews.CategoryNewsFragment"
+        android:label="fragment_categorywize_news"
+        tools:layout="@layout/fragment_categorywize_news" >
+        <action
+            android:id="@+id/action_categoryNewsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <argument
+            android:name="category"
+            app:argType="com.onp24.onlinenewsportal24.model.data.Categories" />
+    </fragment>
+</navigation>

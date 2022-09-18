@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ui.details.DetailsFragment">
+
+    <data>
+
+        <variable
+            name="news"
+            type="com.onp24.onlinenewsportal24.model.data.News" />
+
+        <variable
+            name="newsDetail"
+            type="com.onp24.onlinenewsportal24.model.data.DetailsNews" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/llMainRoot"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvRoot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#B12323"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="25dp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:foreground="@drawable/image_overlay"
+                            android:scaleType="centerCrop"
+                            app:image="@{news.image}" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/noto_serif_bengali_regular"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:paddingLeft="24dp"
+                            android:paddingRight="24dp"
+                            android:paddingBottom="4dp"
+                            android:text="@{news.title}"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+            <include
+                android:id="@+id/toolbarRaw"
+                layout="@layout/toolbar_back" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/llRoot"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/noto_serif_bengali_regular"
+                        android:gravity="left"
+                        android:text="@{newsDetail.published}"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
+                        android:fontFamily="@font/noto_serif_bengali_regular"
+                        android:gravity="right"
+                        android:text="@{newsDetail.view +` `}"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_serif_bengali_regular"
+                        android:justificationMode="inter_word"
+                        android:padding="16dp"
+                        android:text="@{newsDetail.textBody}"
+                        android:textSize="16sp" />
+                </ScrollView>
+            </LinearLayout>
+            <include layout="@layout/splash"
+                android:id="@+id/splash"/>
+            <include
+                android:id="@+id/internet"
+                layout="@layout/no_internet_connection" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

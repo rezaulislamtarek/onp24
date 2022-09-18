@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="activity"
+            type="com.onp24.onlinenewsportal24.MainActivity" />
+    </data>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="?android:selectableItemBackground"
+        android:focusable="true"
+        android:clickable="true"
+        android:id="@+id/backBtn"
+        android:onClick="@{() -> activity.onBackPressed()}"
+        android:drawableStart="@drawable/ic_baseline_arrow_back_24"
+        android:padding="8dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/hind_siliguri_medium"
+        android:gravity="center|left"
+        android:id="@+id/toolbarTitle"
+        android:paddingTop="8dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:paddingBottom="8dp"
+        android:text="Online News Portal 24"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
+</layout>
